@@ -1,0 +1,135 @@
+.hero {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.content {
+    flex: 1;
+    max-width: 500px;
+}
+
+.content h1 {
+    font-size: 40px;
+    font-family: 'Abhaya Libre Medium';
+    margin-bottom: 16px;
+    line-height: 1.2;
+}
+
+.content p {
+    font-size: 20px;
+    margin-bottom: 24px;
+    color: #444;
+}
+
+.content span {
+    color: #995934;
+}
+
+.heroImage {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.heroImage img {
+    width: 100%;
+    max-width: 488px;
+    height: auto;
+}
+
+.startButtons {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+}
+
+.primary {
+    font-size: 16px;
+    background-color: #995934;
+    color: #FFE099;
+    border: 1px solid #FFE099;
+    border-radius: 14px;
+    cursor: pointer;
+    padding: 16px 32px;
+    min-width: 165px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+.secondary {
+    font-size: 14px;
+    background-color: #FFE099;
+    color: #A75900;
+    border: 1px solid #A75900;
+    border-radius: 14px;
+    cursor: pointer;
+    padding: 16px 32px;
+    min-width: 165px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.3s ease;
+}
+
+@media (max-width: 1200px) {
+    .hero {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+        padding: 40px 20px;
+    }
+
+    .content {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .startButtons {
+        justify-content: center;
+    }
+
+    .heroImage {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .content h1 {
+        font-size: 32px;
+    }
+
+    .content p {
+        font-size: 18px;
+    }
+
+    .startButtons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .primary,
+    .secondary {
+        width: 100%;
+        min-width: unset;
+    }
+}
