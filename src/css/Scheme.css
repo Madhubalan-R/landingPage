@@ -18,7 +18,6 @@
     overflow: hidden;
     z-index: 10;
     pointer-events: none;
-    /* Let clicks pass through if needed, though images are inside */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,88 +45,35 @@
     height: 150px;
 }
 
-.bubble-content {
+.bubble-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.strip-item {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
 }
 
-.bubble-content img {
+.strip-item.left,
+.strip-item.right {
+    height: 140px;
+}
+
+.strip-item.top {
+    height: 150px;
+}
+
+.strip-item img {
     max-width: 90%;
     height: auto;
     object-fit: contain;
 }
-
-/* ================= ANIMATIONS ================= */
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(120px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOutUp {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(-120px);
-        opacity: 0;
-    }
-}
-
-@keyframes slideInDown {
-    from {
-        transform: translateY(-120px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes slideOutDown {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(120px);
-        opacity: 0;
-    }
-}
-
-.bubble-content.enter-up {
-    animation: slideInUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-.bubble-content.exit-up {
-    animation: slideOutUp 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-.bubble-content.enter-down {
-    animation: slideInDown 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-.bubble-content.exit-down {
-    animation: slideOutDown 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-}
-
-/* Default visible state for first render if needed, but JS handles it */
 
 /* ================= LAYOUT ================= */
 
@@ -186,7 +132,7 @@
     height: 160px;
     flex-shrink: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
-    transform: scale(0.8);
+    transform: scale(0.9);
     opacity: 0.5;
     cursor: pointer;
 }

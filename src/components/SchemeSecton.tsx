@@ -46,7 +46,7 @@ const schemeData = [
       { particular: "226-300", value: "2%" },
       { particular: "301-330", value: "0%" }
     ],
-    image: "egoldScheme.png"
+    image: "silverScheme.png"
   },
   {
     id: 'tree',
@@ -67,7 +67,7 @@ const schemeData = [
       { particular: "22kt Gold Rate", value: "₹ 14,500/g" },
       { particular: "Saved Gold Weight", value: "₹ 15,000 ÷ ₹ 14,500 = 1.03 grms" }
     ],
-    image: "egoldScheme.png"
+    image: "gtscheme.png"
   },
   {
     id: 'jewel',
@@ -89,7 +89,7 @@ const schemeData = [
       { particular: "Bonus (1 month)", value: "₹5,000" },
       { particular: "Total Value", value: "₹60,000" }
     ],
-    image: "egoldScheme.png"
+    image: "fbscheme.png"
   },
   {
     id: 'plus',
@@ -111,10 +111,10 @@ const schemeData = [
       { particular: "6 months ", value: "75% of the total gold value" },
       { particular: "12 months", value: "100% of the total gold value" }
     ],
-    image: "egoldScheme.png"
+    image: "acsscheme.png"
   },
     {
-    id: 'plus',
+    id: 'spark',
     label: "Future Spark Plus",
     title: "Monthly Savings into Diamonds",
     subtitle: "What is the Future Spark Plus Scheme?",
@@ -133,21 +133,28 @@ const schemeData = [
       { particular: "Bonus (2 months)", value: "₹10,000" },
       { particular: "Total Value", value: "₹65,000" }
     ],
-    image: "egoldScheme.png"
+    image: "fspscheme.png"
   }
 ];
 
 function SchemeSection() {
   const [activeIndex, setActiveIndex] = useState(0);
-
   const data = schemeData[activeIndex];
+
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % schemeData.length);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + schemeData.length) % schemeData.length);
+  };
 
   return (
     <>
     <div className="schemeContainer" id="scheme-section">
     <img src="bhimaclick.png" alt="" className="bhimaboy"/>
     <section className="scheme-container">
-      <h2 className="section-title">Choose Your Gold Saving Plan</h2>
+      <h2 className="section-title">Choose Your Saving Plan</h2>
 
       <div className="scheme-layout">
         <div className="scheme-nav">
@@ -195,17 +202,27 @@ function SchemeSection() {
               className="active-indicator" 
               style={{ 
                 height: `${activeIndex * 90 + 25}px`,
-                '--active-width': `${40 + activeIndex * 120 + 60}px`
+                '--active-width': `${(activeIndex / (schemeData.length - 1)) * 100}%`
               } as React.CSSProperties}
             ></div>
           </div>
         </div>
 
-        <div className="scheme-image">
+        <div className="mobile-nav-header">
+          <button className="nav-arrow prev" onClick={handlePrev}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          </button>
+          <span className="mobile-selection-label">{data.label}</span>
+          <button className="nav-arrow next" onClick={handleNext}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </button>
+        </div>
+
+        <div className="scheme-image" key={`img-${activeIndex}`}>
           <img src={data.image} alt={data.label} />
         </div>
 
-        <div className="scheme-details">
+        <div className="scheme-details" key={`details-${activeIndex}`}>
           <h3>{data.title}</h3>
           <h5>{data.subtitle}</h5>
           <p className="scheme-desc">{data.description}</p>

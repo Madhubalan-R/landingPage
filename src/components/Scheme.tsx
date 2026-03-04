@@ -54,12 +54,9 @@ const schemes = [
 function Scheme() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(originalImages.length);
-  const prevActiveIndex = useRef(activeIndex);
-  const prevSchemeIndex = useRef(activeIndex % originalImages.length);
-  const schemeIndex = activeIndex % originalImages.length;
-  const [animClass, setAnimClass] = useState("enter-up");
-  const [displayInfos, setDisplayInfos] = useState(schemes[schemeIndex]);
-  const isFirstRender = useRef(true);
+  const leftStrip = images.map((_, i) => schemes[i % schemes.length].left);
+  const topStrip = images.map((_, i) => schemes[i % schemes.length].top);
+  const rightStrip = images.map((_, i) => schemes[i % schemes.length].right);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -68,50 +65,6 @@ function Scheme() {
     const singleSetWidth = container.scrollWidth / 3;
     container.scrollLeft = singleSetWidth;
   }, []);
-
-  useEffect(() => {
-    if (isFirstRender.current) {
-        isFirstRender.current = false;
-        return;
-    }
-
-    // Only animate if the actual scheme content changes
-    if (schemeIndex === prevSchemeIndex.current) {
-        prevActiveIndex.current = activeIndex;
-        return;
-    }
-
-    // Determine direction based on activeIndex delta
-    // In infinite scroll, a large jump (e.g. 11 -> 0) means forward
-    const delta = activeIndex - prevActiveIndex.current;
-    let dir: 'forward' | 'backward' = 'forward';
-
-    if (delta > 0) {
-        // Normal scroll right or a jump from first set to second? 
-        // Actually, simple comparison works if we ignore the infinite jump which shouldn't change schemeIndex
-        dir = 'forward';
-    } else {
-        dir = 'backward';
-    }
-
-    // User: "when i click left side, the bubble should down, if right, scroll top"
-    // forward (right) -> Up
-    // backward (left) -> Down
-    const exitClass = dir === 'forward' ? 'exit-up' : 'exit-down';
-    const enterClass = dir === 'forward' ? 'enter-up' : 'enter-down';
-
-    setAnimClass(exitClass);
-
-    const timeout = setTimeout(() => {
-        setDisplayInfos(schemes[schemeIndex]);
-        setAnimClass(enterClass);
-    }, 500);
-
-    prevActiveIndex.current = activeIndex;
-    prevSchemeIndex.current = schemeIndex;
-
-    return () => clearTimeout(timeout);
-  }, [schemeIndex, activeIndex]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -178,20 +131,41 @@ function Scheme() {
     <div className="scheme">
       <div className="benefits">
         <div className="bubble-slot left">
-          <div className={`bubble-content ${animClass}`}>
-            <img src={displayInfos.left} alt="" />
+          <div className="bubble-strip" style={{ 
+            transform: `translateY(-${(activeIndex * 100) / images.length}%)`,
+            transitionDelay: '0.1s'
+          }}>
+            {leftStrip.map((src, i) => (
+              <div className="strip-item left" key={i}>
+                <img src={src} alt="" />
+              </div>
+            ))}
           </div>
         </div>
         
         <div className="bubble-slot top">
-          <div className={`bubble-content ${animClass}`}>
-            <img src={displayInfos.top} alt="" />
+          <div className="bubble-strip" style={{ 
+            transform: `translateY(-${(activeIndex * 100) / images.length}%)`,
+            transitionDelay: '0.1s'
+          }}>
+            {topStrip.map((src, i) => (
+              <div className="strip-item top" key={i}>
+                <img src={src} alt="" />
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="bubble-slot right">
-          <div className={`bubble-content ${animClass}`}>
-            <img src={displayInfos.right} alt="" />
+          <div className="bubble-strip" style={{ 
+            transform: `translateY(-${(activeIndex * 100) / images.length}%)`,
+            transitionDelay: '0.1s'
+          }}>
+            {rightStrip.map((src, i) => (
+              <div className="strip-item right" key={i}>
+                <img src={src} alt="" />
+              </div>
+            ))}
           </div>
         </div>
         <div className="appView">

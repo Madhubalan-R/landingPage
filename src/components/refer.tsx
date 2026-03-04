@@ -4,7 +4,7 @@ function Refer(){
     return(
         <>
         <div className="refersection">
-        <img src="refer.png" alt="" className="referimg"/>
+        <img src="referral.png" alt="" className="referimg"/>
         <div className="refercontent">
             <div className="refer-item">
             <h2>Share Your Code</h2>
