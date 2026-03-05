@@ -237,7 +237,7 @@
 }
 
 .source img {
-  height: 48px;
+  height: 68px;
   width: auto;
   object-fit: contain;
   margin-bottom: 10px;
@@ -259,7 +259,7 @@
 
 .source span {
   display: block;
-  width: 80px;
+  width: 150px;
   height: 2.5px;
   background-color: #8D0E07;
   margin: 10px auto;
@@ -273,10 +273,6 @@
 .source:hover span {
   transform: scaleX(1);
   opacity: 1;
-}
-
-.source:hover {
-  transform: translateY(-5px);
 }
 
 @media (max-width: 1100px) {

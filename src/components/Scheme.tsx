@@ -54,6 +54,7 @@ const schemes = [
 function Scheme() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [activeIndex, setActiveIndex] = useState(originalImages.length);
+  const [isJumping, setIsJumping] = useState(false);
   const leftStrip = images.map((_, i) => schemes[i % schemes.length].left);
   const topStrip = images.map((_, i) => schemes[i % schemes.length].top);
   const rightStrip = images.map((_, i) => schemes[i % schemes.length].right);
@@ -95,7 +96,7 @@ function Scheme() {
 
   const handleScroll = () => {
     const container = containerRef.current;
-    if (!container) return;
+    if (!container || isJumping) return;
 
     const center = container.scrollLeft + container.offsetWidth / 2;
     const items = Array.from(container.children);
@@ -120,10 +121,16 @@ function Scheme() {
 
     const singleSetWidth = container.scrollWidth / 3;
 
+    // Handle Infinite Loop Jump
+    // Increased thresholds to avoid jumping in the middle of a smooth scroll unless necessary
     if (container.scrollLeft <= 5) {
-      container.scrollLeft += singleSetWidth;
+      setIsJumping(true);
+      container.scrollTo({ left: container.scrollLeft + singleSetWidth, behavior: "auto" });
+      setTimeout(() => setIsJumping(false), 50);
     } else if (container.scrollLeft >= singleSetWidth * 2 - 5) {
-      container.scrollLeft -= singleSetWidth;
+      setIsJumping(true);
+      container.scrollTo({ left: container.scrollLeft - singleSetWidth, behavior: "auto" });
+      setTimeout(() => setIsJumping(false), 50);
     }
   };
 
@@ -133,7 +140,8 @@ function Scheme() {
         <div className="bubble-slot left">
           <div className="bubble-strip" style={{ 
             transform: `translateY(-${(activeIndex * 100) / images.length}%)`,
-            transitionDelay: '0.1s'
+            transition: isJumping ? 'none' : 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+            transitionDelay: isJumping ? '0s' : '0.1s'
           }}>
             {leftStrip.map((src, i) => (
               <div className="strip-item left" key={i}>
@@ -146,7 +154,8 @@ function Scheme() {
         <div className="bubble-slot top">
           <div className="bubble-strip" style={{ 
             transform: `translateY(-${(activeIndex * 100) / images.length}%)`,
-            transitionDelay: '0.1s'
+            transition: isJumping ? 'none' : 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+            transitionDelay: isJumping ? '0s' : '0.1s'
           }}>
             {topStrip.map((src, i) => (
               <div className="strip-item top" key={i}>
@@ -159,7 +168,8 @@ function Scheme() {
         <div className="bubble-slot right">
           <div className="bubble-strip" style={{ 
             transform: `translateY(-${(activeIndex * 100) / images.length}%)`,
-            transitionDelay: '0.1s'
+            transition: isJumping ? 'none' : 'transform 0.4s cubic-bezier(0.23, 1, 0.32, 1)',
+            transitionDelay: isJumping ? '0s' : '0.1s'
           }}>
             {rightStrip.map((src, i) => (
               <div className="strip-item right" key={i}>

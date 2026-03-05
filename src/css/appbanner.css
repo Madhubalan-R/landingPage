@@ -172,11 +172,11 @@
     }
 
     .download-options {
-        gap: 20px;
+        gap: 80px;
     }
 
     .download-column {
-        gap: 10px;
+        gap: 20px;
     }
 
     .qr-box {

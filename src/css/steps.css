@@ -237,6 +237,11 @@
   font-size: 18px;
   font-weight: 600;
 }
+.step-card2 h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
 
 .step-card1 p,
 .step-card2 p {
@@ -295,8 +300,14 @@
     padding: 30px 20px;
     text-align: center;
   }
+.step-card1:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(10px);
+}
 
-  .step-card-content {
-    margin-top: 15px;
-  }
+.step-card2:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(10px);
+}
+
 }
