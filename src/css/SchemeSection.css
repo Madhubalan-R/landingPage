@@ -1,17 +1,4 @@
-.schemeContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.schemeContainer .bhimaboy {
-    position: relative;
-    top: 330px;
-    left: 100px;
-}
-
 .scheme-container {
-    background-color: hsl(48, 56%, 93%);
     padding: 100px 20px;
     text-align: center;
     font-family: 'Inter', sans-serif;
@@ -38,6 +25,12 @@
     gap: 30px;
     align-items: flex-start;
     text-align: left;
+}
+
+.scheme-layout .bhimaboy {
+    position: relative;
+    top: 450px;
+    left: 30px;
 }
 
 .mobile-nav-header {
@@ -84,7 +77,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
 
@@ -135,13 +127,13 @@
 .scheme-image {
     flex: 1;
     max-width: 360px;
-    height: 497px;
+    height: 490px;
     animation: contentFadeIn 0.8s ease-out forwards;
 }
 
 .scheme-image img {
     width: 100%;
-    height: 497px;
+    height: 490px;
     aspect-ratio: 1;
     object-fit: contain;
     border-radius: 20px;
@@ -388,6 +380,8 @@
         width: 100%;
         gap: 30px;
         margin-bottom: 20px;
+        position: relative;
+        z-index: 10;
     }
 
     .nav-arrow {
@@ -402,6 +396,8 @@
         cursor: pointer;
         color: #333;
         transition: transform 0.2s ease, background 0.2s ease;
+        position: relative;
+        z-index: 20;
     }
 
     .nav-arrow:active {
@@ -431,7 +427,7 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
-    .schemeContainer .bhimaboy {
+    .scheme-container .bhimaboy {
         display: none;
     }
 }

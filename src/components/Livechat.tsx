@@ -166,6 +166,7 @@ export default function RateChart() {
           </div>
 
           <div className="tabContainer">
+            <div className={`tabHighlight ${activeTab === "silver" ? "silver" : ""}`}></div>
             <button
               className={`tabButton ${activeTab === "gold" ? "active" : ""}`}
               onClick={() => setActiveTab("gold")}
