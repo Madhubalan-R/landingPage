@@ -151,11 +151,10 @@ function SchemeSection() {
 
   return (
     <>
-    <div className="schemeContainer" id="scheme-section">
     <section className="scheme-container">
       <h2 className="section-title">Choose Your Saving Plan</h2>
-
       <div className="scheme-layout">
+        <img src="bhimaclick.png" alt="" className="bhimaboy"/>
         <div className="scheme-nav">
           <div className="vertical-line">
             {schemeData.map((scheme, index) => {
@@ -253,7 +252,6 @@ function SchemeSection() {
         </div>
       </div>
     </section>
-    </div>
     </>
   );
 }

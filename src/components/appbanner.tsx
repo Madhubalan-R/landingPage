@@ -36,7 +36,9 @@ function Appbanner() {
         </div>
 
         <div className="banner-right">
-          <div className="video-placeholder"></div>
+          <div className="video-placeholder">
+            <img src="MobileScreen.png" alt="MobileScreen" className="MobileScreen" />
+          </div>
         </div>
       </div>
     </div>

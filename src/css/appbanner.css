@@ -30,6 +30,13 @@
     text-align: center;
 }
 
+.MobileScreen {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+}
+
 .download-text {
     font-size: 13px;
     letter-spacing: 3px;
