@@ -152,7 +152,6 @@ function SchemeSection() {
   return (
     <>
     <div className="schemeContainer" id="scheme-section">
-    <img src="bhimaclick.png" alt="" className="bhimaboy"/>
     <section className="scheme-container">
       <h2 className="section-title">Choose Your Saving Plan</h2>
 
