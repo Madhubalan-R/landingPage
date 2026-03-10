@@ -1,0 +1,231 @@
+.scheme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 826px;
+    height: 719px;
+    margin: 108px auto 0 auto;
+    padding: 30px 63px;
+    position: relative;
+    text-align: center;
+}
+
+/* ================= BUBBLE SLOTS ================= */
+
+.bubble-slot {
+    position: absolute;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bubble-slot.left {
+    left: -50px;
+    top: 25%;
+    width: 250px;
+    height: 140px;
+}
+
+.bubble-slot.right {
+    right: -50px;
+    top: 32%;
+    width: 250px;
+    height: 140px;
+}
+
+.bubble-slot.top {
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 150px;
+}
+
+.bubble-strip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.strip-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.strip-item.left,
+.strip-item.right {
+    height: 140px;
+}
+
+.strip-item.top {
+    height: 150px;
+}
+
+.strip-item img {
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ================= LAYOUT ================= */
+
+.benefits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 689px;
+    height: 689px;
+    background: linear-gradient(0deg, #FEFAE9 100%, #E0E0E1 100%);
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px 1px #c4c2c2;
+    position: relative;
+}
+
+.appView {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 519px;
+    height: 519px;
+    background: linear-gradient(0deg, #8D0E07 100%, #BE0A00 100%);
+    border-radius: 50%;
+    position: relative;
+}
+
+.Mobile {
+    padding-top: 76px;
+    height: 485px;
+    width: 223px;
+}
+
+.schemeCards {
+    position: absolute;
+    top: 335px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 698px;
+    height: 168px;
+    display: flex;
+    overflow-x: auto;
+    /* scroll-behavior: smooth; */
+    scrollbar-width: none;
+    padding: 0 20%;
+}
+
+.schemeCards::-webkit-scrollbar {
+    display: none;
+}
+
+.schemeCards img {
+    width: 248px;
+    height: 160px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    transform: scale(0.9);
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.schemeCards img.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .scheme {
+        height: auto;
+        padding: 60px 20px;
+        flex-direction: column;
+    }
+
+    .benefits {
+        max-width: 500px;
+        height: 500px;
+        margin-bottom: 100px;
+    }
+
+    .appView {
+        max-width: 380px;
+        height: 380px;
+    }
+
+    .Mobile {
+        height: 350px;
+        width: auto;
+        padding-top: 40px;
+    }
+
+    .bubble-slot.left {
+        left: 0;
+        top: 5%;
+        width: 220px;
+    }
+
+    .bubble-slot.right {
+        right: 0;
+        top: 15%;
+        width: 220px;
+    }
+
+    .bubble-slot.top {
+        top: -20px;
+        width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .bubble-slot.left {
+        left: -30px;
+        top: 5%;
+        width: 120px;
+    }
+
+    .bubble-slot.right {
+        right: -20px;
+        top: 15%;
+        width: 120px;
+    }
+
+    .bubble-slot.top {
+        top: -70px;
+        width: 160px;
+    }
+
+    .benefits {
+        max-width: 320px;
+        height: 320px;
+        margin-bottom: 50px;
+    }
+
+    .appView {
+        max-width: 260px;
+        height: 260px;
+    }
+
+    .Mobile {
+        height: 240px;
+        padding-top: 20px;
+    }
+
+    .schemeCards {
+        top: 150px;
+    }
+
+    .schemeCards img {
+        width: 150px;
+        height: 100px;
+    }
+}

@@ -1,0 +1,313 @@
+.steps-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.steps-section h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: #8D0E07;
+}
+
+.steps-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  gap: 120px;
+}
+
+/* ================= CIRCLE ================= */
+
+.circle-wrapper {
+  position: relative;
+  width: 404px;
+  height: 386px;
+}
+
+/* SVG ARC */
+
+.ring {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-120deg);
+}
+
+.ring-bg {
+  fill: none;
+  stroke: #FDC852;
+  stroke-width: 14;
+  stroke-linecap: round;
+  stroke-dasharray: 840 140;
+}
+
+/* ================= BULLETS ================= */
+
+.bullet {
+  position: absolute;
+  width: 30px;
+  height: 29px;
+  background: #FDC852;
+  border-radius: 50%;
+}
+
+/* Adjust if needed slightly */
+.start {
+  top: 28%;
+  left: 37px;
+}
+
+.end {
+  bottom: 37%;
+  left: 24px;
+}
+
+/* ================= CENTER CONTENT ================= */
+
+.center-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.rotating-coin {
+  width: 80px;
+  animation: rotateCoin 3s linear infinite;
+  backface-visibility: visible;
+  perspective: 1000px;
+}
+
+@keyframes rotateCoin {
+  from {
+    transform: rotateY(0deg);
+  }
+
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.center-content h3 {
+  font-weight: 500;
+}
+
+.center-content span {
+  font-size: 42px;
+  font-weight: bold;
+}
+
+/* ================= STEPS ON ARC ================= */
+
+.step {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border: 6px solid #FFBD38;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 800;
+  color: #8D0E07;
+}
+
+/* Positioned visually on arc */
+
+.step1 {
+  top: 20px;
+  right: 90px;
+}
+
+.step2 {
+  top: 165px;
+  right: -1px;
+}
+
+.step3 {
+  bottom: 16px;
+  right: 110px;
+}
+
+/* ================= RIGHT SIDE ================= */
+
+.steps-content {
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  position: relative;
+}
+
+/* Dotted connectors on cards */
+.step-card1,
+.step-card2 {
+  position: relative;
+}
+
+.step-card1::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  height: 2px;
+  background-image: radial-gradient(circle, #000 1.5px, transparent 1.5px);
+  background-size: 10px 100%;
+  background-repeat: repeat-x;
+}
+
+.step-card2::before {
+  content: "";
+  position: absolute;
+  transform: translateY(-50%);
+  height: 2px;
+  background-image: radial-gradient(circle, #000 1.5px, transparent 1.5px);
+  background-size: 10px 100%;
+  background-repeat: repeat-x;
+}
+
+/* Specific lengths to reach the steps on the arc */
+.steps-content>div:nth-child(1)::before {
+  left: -200px;
+  width: 179px;
+}
+
+.steps-content>div:nth-child(2)::before {
+  left: -250px;
+  width: 242px;
+}
+
+.steps-content>div:nth-child(3)::before {
+  left: -213px;
+  width: 189px;
+  top: 45px;
+}
+
+
+.step-card1 {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16PX 24PX;
+  width: 350px;
+  text-align: left;
+  height: 86PX;
+}
+
+.step-card1:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateX(10px);
+}
+
+.step-card2:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateX(10px);
+}
+
+.step-card2 {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16PX 24PX;
+  width: 350px;
+  text-align: left;
+  height: 86PX;
+  left: 142px;
+}
+
+.step-card-content {
+  text-align: center;
+}
+
+
+.step-card1 h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.step-card2 h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.step-card1 p,
+.step-card2 p {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  color: rgba(42, 42, 41, 0.45);
+  text-align: center;
+  font-family: "Inter";
+}
+
+@media (max-width: 1024px) {
+  .steps-wrapper {
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  .circle-wrapper {
+    width: 100%;
+    max-width: 404px;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .steps-content {
+    align-items: center;
+    width: 100%;
+  }
+
+  .step-card1,
+  .step-card2 {
+    left: 0 !important;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .step-card1::before,
+  .step-card2::before {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .circle-wrapper {
+    display: none;
+  }
+
+  .steps-section h2 {
+    font-size: 24px;
+  }
+
+  .step-card1,
+  .step-card2 {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 20px;
+    text-align: center;
+  }
+.step-card1:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(10px);
+}
+
+.step-card2:hover {
+  transition: all 0.3s ease-in-out;
+  transform: translateY(10px);
+}
+
+}
