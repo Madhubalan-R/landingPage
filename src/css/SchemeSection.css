@@ -1,7 +1,6 @@
 .scheme-container {
     padding: 100px 20px;
     text-align: center;
-    font-family: 'Inter', sans-serif;
     width: 100%;
     max-width: 1200px;
     height: 620px;
@@ -10,7 +9,6 @@
 }
 
 .section-title {
-    font-family: 'Lora', serif;
     font-size: 36px;
     color: #8D0E07;
     margin-bottom: 60px;
@@ -406,7 +404,6 @@
     }
 
     .mobile-selection-label {
-        font-family: 'Lora', serif;
         font-size: 24px;
         font-weight: 700;
         color: #8D0E07;
