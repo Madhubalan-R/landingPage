@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.step-section span{
+  font-family : none;
+}
+
 .steps-section h2 {
   font-size: 32px;
   font-weight: 600;
@@ -11,6 +15,10 @@
 .subtitle {
   margin-top: 8px;
   color: #8D0E07;
+  line-height: 1;
+  font-family: 'Marcellus', serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .steps-wrapper {
@@ -237,6 +245,7 @@
   font-size: 18px;
   font-weight: 600;
 }
+
 .step-card2 h4 {
   margin-bottom: 8px;
   font-size: 18px;
@@ -250,7 +259,6 @@
   font-weight: 400;
   color: rgba(42, 42, 41, 0.45);
   text-align: center;
-  font-family: "Inter";
 }
 
 @media (max-width: 1024px) {
@@ -300,14 +308,15 @@
     padding: 30px 20px;
     text-align: center;
   }
-.step-card1:hover {
-  transition: all 0.3s ease-in-out;
-  transform: translateY(10px);
-}
 
-.step-card2:hover {
-  transition: all 0.3s ease-in-out;
-  transform: translateY(10px);
-}
+  .step-card1:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(10px);
+  }
+
+  .step-card2:hover {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(10px);
+  }
 
 }

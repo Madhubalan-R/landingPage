@@ -3,8 +3,8 @@ import "../css/steps.css";
 function Steps() {
   return (
     <section className="steps-section">
-      <h2>Get started in 3 easy steps</h2>
-      <p className="subtitle">[ Download ] → [ Choose ] → [ Save ]</p>
+      <h2>Get started in <span>3</span> easy steps</h2>
+      <p className="subtitle"> Download → Choose → Save </p>
 
       <div className="steps-wrapper">
         <div className="circle-wrapper">
