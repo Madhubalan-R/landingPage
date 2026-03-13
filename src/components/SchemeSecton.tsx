@@ -154,22 +154,22 @@ function SchemeSection() {
     <section className="scheme-container" id="scheme-section">
       <h2 className="section-title">Choose Your Saving Plan</h2>
       <div className="scheme-layout">
-        <img src="bhimaclick.png" alt="" className="bhimaboy"/>
+        <img src="bhimaclick.png" alt="Click" className="bhimaboy"/>
         <div className="scheme-nav">
           <div className="vertical-line">
             {schemeData.map((scheme, index) => {
               const itemHeight = 90; 
               const bottomPos = 452;
               
-              let topPos;
+              let topPos = -5;
               let zIndex;
               let opacity = 1;
 
               if (index <= activeIndex) {
-                topPos = index * itemHeight;
+                topPos += index * itemHeight;
                 zIndex = 10 + index;
               } else {
-                topPos = bottomPos;
+                topPos += bottomPos;
                 zIndex = 5 - index;
                 if (index > activeIndex + 1) {
                   opacity = 0;
@@ -179,7 +179,7 @@ function SchemeSection() {
               return (
                 <div 
                   key={scheme.id}
-                  className={`nav-dot ${activeIndex === index ? 'active' : ''}`}
+                  className={`nav-dot ${activeIndex === index ? 'active' : ''} ${index === activeIndex + 1 ? 'blink' : ''}`}
                   onClick={() => setActiveIndex(index)}
                   style={{ 
                     top: topPos, 

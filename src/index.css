@@ -2,6 +2,22 @@
     font-family: "Marmelad", sans-serif;
 }
 
+html,
+body {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    touch-action: pan-x pan-y;
+    background-image: url("background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #FFFBEB;
+}
+
 h1,
 h2,
 h3,
@@ -15,6 +31,5 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(180deg, #FFE099 0%, rgba(241, 203, 119, 0) 100vh) no-repeat;
-    background-color: #FFFBEB;
     background-attachment: scroll;
 }

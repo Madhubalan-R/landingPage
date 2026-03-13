@@ -14,11 +14,12 @@
 
 .banner-content {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 40px;
+    gap: 100px;
 }
 
 .banner-left {
@@ -35,6 +36,7 @@
     max-width: 500px;
     height: auto;
     display: block;
+    border-radius: 8%;
 }
 
 .download-text {
@@ -47,7 +49,7 @@
 }
 
 .banner-title {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 600;
     line-height: 1.2;
     margin-bottom: 15px;
@@ -67,16 +69,31 @@
     font-size: 20px;
     line-height: 1.5;
     max-width: 480px;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
     color: rgba(255, 255, 255, 0.9);
+    margin-left: 0;
 }
-
+.paymentIcons {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 390px;
+}
+.paymentIcons img {
+    width: 50px;
+    height: 47px;
+    object-fit: contain;
+    border-radius: 8px;
+}
 .available-on {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 20px;
-    margin-top: 20px;
 }
 
 .available-on p {
@@ -99,27 +116,6 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
-}
-
-.qr-box {
-    background: #fff;
-    padding: 10px;
-    border-radius: 12px;
-    width: 130px;
-    height: 130px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
-}
-
-
-.qr-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
 }
 
 .store-btn {
@@ -162,6 +158,12 @@
 }
 
 @media (max-width: 1024px) {
+
+    .appbanner,
+    .appbanner * {
+        box-sizing: border-box;
+    }
+
     .banner-content {
         flex-direction: column;
         gap: 60px;
@@ -169,6 +171,26 @@
 
     .banner-left {
         max-width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    .paymentIcons {
+        justify-content: center;
+    }
+
+    .available-on {
+        align-items: center;
+    }
+
+    .store-btn .playstore {
+        width: 150px;
+        height: 50px;
+    }
+
+    .store-btn .appstore {
+        width: 150px;
+        height: 50px;
     }
 }
 
@@ -178,7 +200,7 @@
     }
 
     .download-options {
-        gap: 80px;
+        gap: 20px;
     }
 
     .download-column {
