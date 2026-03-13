@@ -5,7 +5,6 @@
     max-width: 1200px;
     height: 620px;
     margin: 24px auto;
-    padding: 0 20px;
 }
 
 .section-title {
@@ -19,16 +18,18 @@
     display: flex;
     max-width: 1200px;
     height: 594px;
-    padding: 24px auto;
+    margin: 24px auto;
     gap: 30px;
     align-items: flex-start;
     text-align: left;
+    position: relative;
 }
 
 .scheme-layout .bhimaboy {
-    position: relative;
+    position: absolute;
     top: 450px;
-    left: 30px;
+    left: -100px;
+    z-index: 1;
 }
 
 .mobile-nav-header {
@@ -60,7 +61,7 @@
     align-items: center;
     cursor: pointer;
     z-index: 5;
-    left: 0;
+    left: -1px;
     width: 180px;
     height: 40px;
     transition: top 0.6s cubic-bezier(0.65, 0, 0.35, 1),
@@ -81,13 +82,30 @@
 .inner-dot {
     width: 15px;
     height: 15px;
-    background: #FFFFFF;
+    background: #fbfbfb;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease;
     border: 8px solid #E8E8E8;
+}
+
+@keyframes blink {
+    0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+        border-color: #fad570;
+    }
+    50% {
+        transform: scale(1.25);
+        filter: brightness(1);
+        border-color: #fad570;
+    }
+}
+
+.nav-dot.blink .inner-dot {
+    animation: blink 1.5s infinite ease-in-out;
 }
 
 /* Add a third layer for the red dot */
@@ -277,6 +295,14 @@
 }
 
 @media (max-width: 1024px) {
+
+    .scheme-container,
+    .scheme-container *,
+    .scheme-container::before,
+    .scheme-container::after {
+        box-sizing: border-box;
+    }
+
     .scheme-container {
         height: auto;
         padding: 40px 20px;

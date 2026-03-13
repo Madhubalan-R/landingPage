@@ -3,8 +3,8 @@
   text-align: center;
 }
 
-.step-section span{
-  font-family : none;
+.steps-section span {
+  font-family: none;
 }
 
 .steps-section h2 {
@@ -84,22 +84,26 @@
   align-items: center;
   gap: 14px;
   text-align: left;
-}
-
-.rotating-coin {
-  width: 80px;
-  animation: rotateCoin 3s linear infinite;
-  backface-visibility: visible;
   perspective: 1000px;
 }
 
-@keyframes rotateCoin {
-  from {
-    transform: rotateY(0deg);
-  }
+.center-content img{
+  width: 100px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+  animation: rotateCoin 5s linear infinite;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
 
-  to {
-    transform: rotateY(360deg);
+@keyframes rotateCoin {
+  0% {
+    transform: rotateX(10deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(10deg) rotateY(360deg);
   }
 }
 
@@ -261,7 +265,7 @@
   text-align: center;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 968px) {
   .steps-wrapper {
     flex-direction: column;
     gap: 60px;

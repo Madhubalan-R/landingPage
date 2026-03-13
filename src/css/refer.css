@@ -6,10 +6,9 @@
    width: 100%;
    max-width: 996px;
    height: auto;
-   /* Changed to auto for better responsiveness */
    margin: 80px auto;
-   /* Centers the whole section on the page */
    padding: 0 20px;
+   box-sizing: border-box;
 }
 
 .referimg {
@@ -46,7 +45,6 @@
    position: relative;
 }
 
-/* Vertical Divider between items */
 .refer-item:not(:last-child)::after {
    content: "";
    position: absolute;

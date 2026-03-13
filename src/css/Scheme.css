@@ -9,6 +9,7 @@
     padding: 30px 63px;
     position: relative;
     text-align: center;
+    overflow: hidden;
 }
 
 /* ================= BUBBLE SLOTS ================= */
@@ -84,7 +85,7 @@
     width: 100%;
     max-width: 689px;
     height: 689px;
-    background: linear-gradient(0deg, #FEFAE9 100%, #E0E0E1 100%);
+    background: linear-gradient(0deg, #fffdf5 100%, #f7f7f7 100%);
     border-radius: 50%;
     box-shadow: 0px 2px 4px 1px #c4c2c2;
     position: relative;

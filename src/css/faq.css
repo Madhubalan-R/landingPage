@@ -1,3 +1,8 @@
+.faq-container,
+.faq-container * {
+    box-sizing: border-box;
+}
+
 .faq-container {
     width: 100%;
     max-width: 1120px;
@@ -8,7 +13,6 @@
     align-items: center;
 }
 
-/* ================= TOGGLE SELECTOR ================= */
 
 .section-selector {
     display: flex;
@@ -76,7 +80,6 @@
     text-align: center;
 }
 
-/* ================= CONTENT AREA ================= */
 
 .faq-content {
     width: 100%;
@@ -86,12 +89,10 @@
 .faq-title {
     font-size: 28px;
     color: #8D3A31;
-    /* Brownish tone from header */
     margin: 0 0 40px 0;
     font-weight: 600;
 }
 
-/* ================= ACCORDION ================= */
 
 .accordion {
     border: 1.5px solid #F0F0F0;
@@ -146,7 +147,6 @@
 
 .accordion-item.open .accordion-body {
     max-height: 200px;
-    /* Adjust based on content */
 }
 
 .accordion-answer {
@@ -156,7 +156,6 @@
     font-size: 15px;
 }
 
-/* ================= TERMS CONTENT ================= */
 
 .terms-content {
     padding: 20px 0;
@@ -174,7 +173,6 @@
     color: #8D0E07;
 }
 
-/* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
     .faq-title {
@@ -183,7 +181,7 @@
     }
 
     .selector-btn {
-        padding: 10px 20px;
+        padding: 10px 15px;
         font-size: 14px;
     }
 

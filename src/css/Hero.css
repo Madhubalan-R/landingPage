@@ -92,6 +92,12 @@
 }
 
 @media (max-width: 1024px) {
+
+    .hero,
+    .hero * {
+        box-sizing: border-box;
+    }
+
     .hero {
         flex-direction: column;
         text-align: center;
@@ -114,22 +120,35 @@
 }
 
 @media (max-width: 600px) {
+    .hero {
+        padding: 40px 15px;
+        gap: 30px;
+    }
+
     .content h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
 
     .content p {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     .startButtons {
         flex-direction: column;
         width: 100%;
+        gap: 12px;
     }
 
     .primary,
     .secondary {
         width: 100%;
         min-width: unset;
+        padding: 14px 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    .content h1 {
+        font-size: 24px;
     }
 }

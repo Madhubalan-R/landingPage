@@ -25,7 +25,7 @@ function Steps() {
           <div className="step step3">3</div>
 
           <div className="center-content">
-            <img src="steps/coin.png" alt="coin" className="rotating-coin" />
+            <img src="coin.png" alt="coin" className="rotating-coin"/>
             <h3>
               <span>3</span> simple steps <br /> to Save
             </h3>

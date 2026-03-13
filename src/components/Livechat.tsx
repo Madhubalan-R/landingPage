@@ -38,7 +38,7 @@ type TimeframeType = "5D" | "1M" | "3M" | "1YR";
 export default function RateChart() {
   const [data, setData] = useState<ChartData[]>([]);
   const [activeTab, setActiveTab] = useState<AssetType>("gold");
-  const [timeframe, setTimeframe] = useState<TimeframeType>("5D");
+  const [timeframe, setTimeframe] = useState<TimeframeType>("1YR");
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -143,7 +143,7 @@ export default function RateChart() {
       <div className="whychoosebhima">
         <div className="chartCard">
           <h2 className="mainTitle">
-            Live Rate Tracking <br /> (Gold/Silver)
+            Live Rate Tracking<br /> <span>({new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })})</span>
           </h2>
 
           <div className="legendRow">
