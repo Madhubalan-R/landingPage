@@ -10,11 +10,10 @@ body {
     padding: 0;
     overflow-x: hidden;
     touch-action: pan-x pan-y;
-    background-image: url("background.png");
+    /* Combined background image and gradient to ensure both are visible and correctly path-resolved by Vite */
+    background: linear-gradient(180deg, #FFE099 0%, rgba(241, 203, 119, 0) 100vh), 
+                url("./assets/background.png") no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
     background-color: #FFFBEB;
 }
 
@@ -25,11 +24,4 @@ h4,
 h5,
 h6 {
     font-family: "Marcellus", serif;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(180deg, #FFE099 0%, rgba(241, 203, 119, 0) 100vh) no-repeat;
-    background-attachment: scroll;
 }
